@@ -5,7 +5,6 @@ let pokemonList = [
   { name: ' Lugia ', height: 5.2, types:['psychic', 'flying']},
 ];
 
-
 //creating a 'For' loop to show the pokemonlist
 for (let i = 0; i < pokemonList.length; i++) {
   document.write("<ul>")
