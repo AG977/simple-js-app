@@ -5,13 +5,15 @@ let pokemonList = [
   { name: ' Lugia ', height: 5.2, types:['psychic', 'flying']},
 ];
 
-//creating a 'For' loop to show the pokemonlist
-for (let i = 0; i < pokemonList.length; i++) {
-  document.write("<ul>")
-  document.write(pokemonList[i].name + pokemonList[i].height)
+//creating a 'For' loop to show the pokemonlist and Added conditional to check if height is above 3M
 
-  // Added conditional to check if height is above 3M
+for (let i = 0; i < pokemonList.length; i++) {
+  document.write('<ul>')
+  document.write('<li>')
+  document.write(pokemonList[i].name + pokemonList[i].height)
   if (pokemonList[i].height > 3){
-    document.write(" Wow, that’s big! ");
+  document.write(" Wow, that’s big! ")
+  document.write('</li>')
+  document.write('</ul>')
   }
 }
