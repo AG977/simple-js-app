@@ -1,17 +1,17 @@
-Cheatsheet: JavaScript App (pokedex)
+# H1 **Cheatsheet: JavaScript App (pokedex)**
 
-Goals:
+## H2 *Goals:*
 To build a small web application with HTML, CSS, and JavaScript that loads data from an external API and enables the viewing of data points in detail.
 
-User Goals:
+## H2 *User Goals:*
 Your users should be able to view a list of data and see more details for a given data item on demand.
 
-Key Features:
+## H2 *Key Features:*
 ● Load data from an external source (API)
 ● View a list of items
 ● On user action (e.g., by clicking on a list item), view details for that item
 
-Requirements:
+## H2 *Requirements:*
 ● The app must load data from an external API; for instance, the Pokémon API.
 ● The app must display a list of items loaded from that API after the page is loaded.
 ● The app must enable the viewing of more details for a given list item (like a Pokémon) on
@@ -29,16 +29,16 @@ Requirements:
   Web Hosting).
 ● The app must work in Chrome, Firefox, Safari, Edge, and Internet Explorer 11.
 
-Nice to have:
+## H2 *Nice to have:*
 ● The app should show loading indicators while loading data.
 ● The app should handle errors (such as trying to load data while offline) and show user-friendly
 error messages.
 
-Technologies:
-Text editor: Atom
-Linters used: - -W3C-Validation (html)
-              - Linter-tidy (html)
-              - Linter-stylelint
-JavaScript version: es6
-css
-html
+## H2 *Technologies:*
+1. - Text editor: Atom
+2. - Linters used: - -W3C-Validation (html)
+                  - Linter-tidy (html)
+                  - Linter-stylelint
+3. JavaScript version: es6
+4. css
+5. html
