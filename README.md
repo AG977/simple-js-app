@@ -37,9 +37,9 @@ error messages.
 ## H2 *Technologies:*
 1. Text editor: Atom
 2. Linters used:
-        -  W3C-Validation (html)
-        -  Linter-tidy (html)
-        -  Linter-stylelint
+  -  W3C-Validation (html)
+  -  Linter-tidy (html)
+  -  Linter-stylelint
 3. JavaScript version: es6
 4. css
 5. html
