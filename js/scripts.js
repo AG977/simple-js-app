@@ -5,19 +5,7 @@ let pokemonlist = [
   { name: 'Lugia', heigt: 5.2, types:['psychic', 'flying']},
 ];
 
-
-//foreach loop
-document.write('<ul>')
-pokemonList.forEach(function(pokemon) {
-document.write('<li>')
-document.write(pokemon.name + pokemon.height);
-if (pokemon.height > 3){
-document.write(" Wow, that’s big! ")
-document.write('</li>')
-document.write('</ul>')
-}});
-
-// foreach loop made clearer
+// foreach loop
 document.write('<ul>')
 function myLoopFunction(pokemon) {
 document.write('<li>')
