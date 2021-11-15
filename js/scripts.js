@@ -7,13 +7,13 @@ let pokemonList = [
 
 //creating a 'For' loop to show the pokemonlist and Added conditional to check if height is above 3M
 
-document.write('<ul>')
-for (let i = 0; i < pokemonList.length; i++) {
+  document.write('<ul>')
+  for (let i = 0; i < pokemonList.length; i++) {
   document.write('<li>')
   document.write(pokemonList[i].name + pokemonList[i].height)
   if (pokemonList[i].height > 3){
   document.write(" Wow, that’s big! ")
-  document.write('<li>')
+  document.write('</li>')
   document.write('</ul>')
   }
 }
