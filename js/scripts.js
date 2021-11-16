@@ -24,13 +24,15 @@ return {
 
 // foreach loop
 document.write('<ul>')
-function myLoopFunction(pokemon) {
-document.write('<li>')
-document.write(pokemon.name  +  pokemon.height);
-if (pokemon.height > 3){
-document.write(" Wow, that’s big! ")
+    function myLoopFunction(pokemon) {
+        document.write('<li>')
+            document.write(pokemon.name  +  pokemon.height);
+                if (pokemon.height > 3){
+                  document.write(" Wow, that’s big! ")
+        document.write('</li>')
   }
 }
+document.write('</ul>')
 pokemonRepository.getAll().forEach(myLoopFunction);
-document.write('</li>')
+
 document.write('</ul>')
