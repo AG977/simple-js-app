@@ -24,7 +24,7 @@ return {
 
 // foreach loop
 document.write('<ul>')
-    function myLoopFunction(pokemon) {
+    function printPokemonList(pokemon) {
         document.write('<li>')
             document.write(pokemon.name  +  pokemon.height);
                 if (pokemon.height > 3){
@@ -33,6 +33,5 @@ document.write('<ul>')
   }
 }
 document.write('</ul>')
-pokemonRepository.getAll().forEach(myLoopFunction);
 
-document.write('</ul>')
+pokemonRepository.getAll().forEach(printPokemonList);
