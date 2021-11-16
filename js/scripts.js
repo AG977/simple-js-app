@@ -9,12 +9,13 @@ let pokemonList = [
 // foreach loop
 document.write('<ul>')
   function myLoopFunction(pokemon) {
-        document.write('<li>')
-              document.write(pokemon.name + pokemon.height);
-              if (pokemon.height > 3){
-              document.write(" Wow, that’s big! ")
+              document.write('<li>')
+                document.write(pokemon.name + pokemon.height);
+                  if (pokemon.height > 3){
+                      document.write(" Wow, that’s big! ")
+              document.write('</li>')
   }
 }
-              pokemonList.forEach(myLoopFunction)
-        document.write('</li>')
 document.write('</ul>')
+
+pokemonList.forEach(myLoopFunction)
