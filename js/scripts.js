@@ -11,19 +11,18 @@ function getAll() {
   return pokemonList;
 }
 
-// Check if information added is an object
+// Includes Bonus part to Check if information added is an object
 function add(pokemon) {
-  if(typeof Pokemon === 'object')
-    pokemonList.push(pokemon);
-  } else {
-    return 'failed'
-  }
+  if (typeof (pokemon) === 'object')
+  pokemonList.push(pokemon)
+  }else{
+  return 'not a pokemon'
+}
 
 return {
     getAll: getAll,
     add: add
   };
-})();
 
 
 // foreach loop
@@ -44,16 +43,19 @@ pokemonRepository.getAll().forEach(printPokemonList);
 //bonus
 // added object.keys to
 
-  if(object.keys  === 'object'){
-    return 'All good'
+  function validate(pokemon) {
+  if(typeof(pokemon) === 'object'&&
+  Object.keys(pokemon)[0] === 'name' &&
+  Object.keys(pokemon)[1] === 'height' &&
+  Object.keys(pokemon)[2] === 'type', 'type'){
+  pokemonList.push(pokemon);
   }else{
-    return 'problem';
+  return 'not a pokemon'
+    }
   }
 
   //create filter function() to find pokemon by name
 
-  function filterItems(pokemonName){
-    return pokemonName.filter(function(name) {
-      return name
-
+  function findPokemon(pokemonName){
+  return pokemonRepositor.filter (pokemon => pokemon.name === pokemonName)
   }
