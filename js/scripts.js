@@ -13,33 +13,32 @@ function getAll() {
 
 // Includes Bonus part to Check if information added is an object
 function add(pokemon) {
-  if (typeof (pokemon) === 'object')
+  if (typeof pokemon === 'object'){
   pokemonList.push(pokemon)
   }else{
   return 'not a pokemon'
 }
+};
 
 return {
     getAll: getAll,
     add: add
   };
-
+})()
 
 // foreach loop
 document.write('<ul>')
     function printPokemonList(pokemon) {
         document.write('<li>')
-            document.write(pokemon.name  +  pokemon.height);
-                if (pokemon.height > 3){
-                  document.write(" Wow, that’s big! ")
-  }
+          document.write(pokemon.name  +  pokemon.height);
+    if (pokemon.height > 3){
+          document.write(" Wow, that’s big! ")
+        }
         document.write('</li>')
-}
+        }
 document.write('</ul>')
 
 pokemonRepository.getAll().forEach(printPokemonList);
-
-
 //bonus
 // added object.keys to
 
@@ -55,7 +54,6 @@ pokemonRepository.getAll().forEach(printPokemonList);
   }
 
   //create filter function() to find pokemon by name
-
   function findPokemon(pokemonName){
   return pokemonRepositor.filter (pokemon => pokemon.name === pokemonName)
-  }
+};
