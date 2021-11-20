@@ -13,8 +13,8 @@ function myLoopFunction(pokemon) {
   document.write(pokemon.name + pokemon.height);
   if (pokemon.height > 3){
   document.write(" Wow, that’s big! ")
-  document.write('</li>')
   }
+  document.write('</li>')
 }
 
 document.write('<ul>')
