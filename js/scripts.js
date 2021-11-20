@@ -17,43 +17,45 @@ function add(pokemon) {
   pokemonList.push(pokemon)
   }else{
   return 'not a pokemon'
-}
+  }
 };
 
 return {
-    getAll: getAll,
-    add: add
+  getAll: getAll,
+  add: add
   };
 })()
 
 // foreach loop
+
+function printPokemonList(pokemon) {
+  document.write('<li>')
+  document.write(pokemon.name  +  pokemon.height);
+  if (pokemon.height > 3){
+    document.write(" Wow, that’s big! ")
+  }
+  document.write('</li>')
+}
+
 document.write('<ul>')
-    function printPokemonList(pokemon) {
-        document.write('<li>')
-          document.write(pokemon.name  +  pokemon.height);
-    if (pokemon.height > 3){
-          document.write(" Wow, that’s big! ")
-        }
-        document.write('</li>')
-        }
+  pokemonRepository.getAll().forEach(printPokemonList);
 document.write('</ul>')
 
-pokemonRepository.getAll().forEach(printPokemonList);
 //bonus
 // added object.keys to
 
-  function validate(pokemon) {
+function validate(pokemon) {
   if(typeof(pokemon) === 'object'&&
   Object.keys(pokemon)[0] === 'name' &&
   Object.keys(pokemon)[1] === 'height' &&
-  Object.keys(pokemon)[2] === 'type', 'type'){
+  Object.keys(pokemon)[2] === 'type'){
   pokemonList.push(pokemon);
   }else{
   return 'not a pokemon'
-    }
   }
+}
 
   //create filter function() to find pokemon by name
-  function findPokemon(pokemonName){
+function findPokemon(pokemonName){
   return pokemonRepositor.filter (pokemon => pokemon.name === pokemonName)
 };
