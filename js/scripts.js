@@ -20,30 +20,7 @@ function add(pokemon) {
   }
 };
 
-return {
-  getAll: getAll,
-  add: add
-  };
-})()
-
-// foreach loop
-
-function printPokemonList(pokemon) {
-  document.write('<li>')
-  document.write(pokemon.name  +  pokemon.height);
-  if (pokemon.height > 3){
-    document.write(" Wow, that’s big! ")
-  }
-  document.write('</li>')
-}
-
-document.write('<ul>')
-  pokemonRepository.getAll().forEach(printPokemonList);
-document.write('</ul>')
-
-//bonus
-// added object.keys to
-
+// bonus - added object.keys
 function validate(pokemon) {
   if(typeof(pokemon) === 'object'&&
   Object.keys(pokemon)[0] === 'name' &&
@@ -53,9 +30,29 @@ function validate(pokemon) {
   }else{
   return 'not a pokemon'
   }
-}
-
-  //create filter function() to find pokemon by name
-function findPokemon(pokemonName){
-  return pokemonRepositor.filter (pokemon => pokemon.name === pokemonName)
 };
+
+// bonus - create filter function() to find pokemon by name
+function findPokemon(pokemonName){
+  return pokemonList.filter (pokemon => pokemon.name === pokemonName)
+};
+
+return {
+  getAll: getAll,
+  add: add,
+  validate: validate,
+  findPokemon: findPokemon
+  };
+//end of iife
+})()
+
+function printPokemonList(pokemon) {
+  document.write('<li>' + pokemon.name  +  pokemon.height);
+  if (pokemon.height > 3){
+  document.write(" Wow, that’s big! " + '</li>')
+  }
+};
+
+document.write('<ul>')
+pokemonRepository.getAll().forEach(printPokemonList);
+document.write('</ul>')
