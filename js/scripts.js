@@ -20,6 +20,14 @@ function add(pokemon) {
   }
 };
 
+function printPokemonList(pokemon) {
+  document.write('<li>' + pokemon.name  +  pokemon.height);
+  if (pokemon.height > 3){
+  document.write(" Wow, that’s big! ")
+  }
+  document.write('</li>')
+};
+
 // bonus - added object.keys
 function validate(pokemon) {
   if(typeof(pokemon) === 'object'&&
@@ -41,18 +49,12 @@ return {
   getAll: getAll,
   add: add,
   validate: validate,
-  findPokemon: findPokemon
+  findPokemon: findPokemon,
+  printPokemonList: printPokemonList,
   };
 //end of iife
 })()
 
-function printPokemonList(pokemon) {
-  document.write('<li>' + pokemon.name  +  pokemon.height);
-  if (pokemon.height > 3){
-  document.write(" Wow, that’s big! " + '</li>')
-  }
-};
-
 document.write('<ul>')
-pokemonRepository.getAll().forEach(printPokemonList);
+pokemonRepository.getAll().forEach(pokemonRepository.printPokemonList)
 document.write('</ul>')
