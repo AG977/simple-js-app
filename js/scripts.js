@@ -14,9 +14,9 @@ function getAll() {
 // Includes Bonus part to Check if information added is an object
 function add(pokemon) {
   if (typeof pokemon === 'object'){
-  pokemonList.push(pokemon)
+    pokemonList.push(pokemon)
   }else{
-  return 'not a pokemon'
+    return 'not a pokemon'
   }
 };
 
@@ -34,9 +34,9 @@ function validate(pokemon) {
   Object.keys(pokemon)[0] === 'name' &&
   Object.keys(pokemon)[1] === 'height' &&
   Object.keys(pokemon)[2] === 'type'){
-  pokemonList.push(pokemon);
+    pokemonList.push(pokemon);
   }else{
-  return 'not a pokemon'
+    return 'not a pokemon'
   }
 };
 
