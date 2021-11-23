@@ -1,31 +1,27 @@
 // array of objects
 
 let pokemonRepository = (function () {
-let pokemonList = [
+let repository = [
   { name: 'Pikachu', height: 0.4, types: ['electric']},
   { name: 'Moltres', height: 2, types: ['fire', 'flying']},
   { name: 'Lugia', height: 5.2, types:['psychic', 'flying']},
 ];
 
 function getAll() {
-  return pokemonList;
+  return repository;
 }
 
 // Includes Bonus part to Check if information added is an object
 function add(pokemon) {
-  if (typeof pokemon === 'object'){
-    pokemonList.push(pokemon)
+  if (typeof pokemon === 'object' &&
+     "name" in pokemon &&
+     "height" in pokemon &&
+     "types" in pokemon
+   ) {
+    repository.push(pokemon)
   }else{
-    return 'not a pokemon'
+    console.log('not a pokemon')
   }
-};
-
-function printPokemonList(pokemon) {
-  document.write('<li>' + pokemon.name  +  pokemon.height);
-  if (pokemon.height > 3){
-  document.write(" Wow, that’s big! ")
-  }
-  document.write('</li>')
 };
 
 // bonus - added object.keys
@@ -34,7 +30,7 @@ function validate(pokemon) {
   Object.keys(pokemon)[0] === 'name' &&
   Object.keys(pokemon)[1] === 'height' &&
   Object.keys(pokemon)[2] === 'type'){
-    pokemonList.push(pokemon);
+    repository.push(pokemon);
   }else{
     return 'not a pokemon'
   }
@@ -42,19 +38,32 @@ function validate(pokemon) {
 
 // bonus - create filter function() to find pokemon by name
 function findPokemon(pokemonName){
-  return pokemonList.filter (pokemon => pokemon.name === pokemonName)
+  return prepository.filter (pokemon => pokemon.name === pokemonName)
 };
 
+//Continue task 1.6 - creating AddListItem function
+function addListItem(pokemon){
+let pokemonList = document.querySelector(".pokemon-list");
+let listpokemon = document.createElement("li");
+let button = document.createElement("button");
+button.innerText = pokemon.name;
+button.classList.add("button-class");
+listpokemon.appendChild(button);
+pokemonList.appendChild(listpokemon);
+};
+
+//Allows the function to be used outside of the IIFE
 return {
   getAll: getAll,
   add: add,
   validate: validate,
   findPokemon: findPokemon,
-  printPokemonList: printPokemonList,
-  };
-//end of iife
-})()
+  addListItem: addListItem
+};
+})()//end of iife
 
-document.write('<ul>')
-pokemonRepository.getAll().forEach(pokemonRepository.printPokemonList)
-document.write('</ul>')
+
+// Foreach loop for addListItem
+pokemonRepository.getAll().forEach(function (pokemon) {
+  pokemonRepository.addListItem(pokemon);
+});
