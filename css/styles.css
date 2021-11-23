@@ -1,7 +1,7 @@
 body {
   background-color: #000;
-  color: #eab92d;
-  font-family: 'Lato', sans-serif;
+  color: #daa520;
+  font-family: 'Outfit', sans-serif;
   font-weight: 400;
   font-size: 20px;
 
@@ -17,8 +17,36 @@ body {
 }
 
 li {
-  text-decoration: none;
   list-style-type: none;
+  text-decoration: none;
   margin: 0;
   padding: 0;
+}
+
+.button-class {
+  background-color: #000;
+  color: #daa520;
+  border-color: #daa520;
+  border-width: 5px;
+  padding: 20px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  list-style-type: none;
+  font-family: inherit;
+  font-size: 20px;
+  margin: 4px 2px;
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+/* making it responsive on all common screen sizes. */
+@media all and (min-width: 500px) and (max-width: 750px) {
+  .button-class {
+    max-width: 200px;
+  }
+
+  h1 {
+    font-size: 22px;
+  }
 }
