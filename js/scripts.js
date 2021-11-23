@@ -43,13 +43,21 @@ function findPokemon(pokemonName){
 
 //Continue task 1.6 - creating AddListItem function
 function addListItem(pokemon){
-let pokemonList = document.querySelector(".pokemon-list");
-let listpokemon = document.createElement("li");
-let button = document.createElement("button");
-button.innerText = pokemon.name;
-button.classList.add("button-class");
-listpokemon.appendChild(button);
-pokemonList.appendChild(listpokemon);
+  let pokemonList = document.querySelector('.pokemon-list');
+  let listpokemon = document.createElement('li');
+  let button = document.createElement('button');
+    button.innerText = pokemon.name;
+    button.classList.add('button-class');
+    listpokemon.appendChild(button);
+    pokemonList.appendChild(listpokemon);
+    button.addEventListener('click', function (){
+      showDetails(pokemon)
+    })
+  }
+
+//add function showDetails()
+function showDetails(pokemon){
+  console.log(pokemon);
 };
 
 //Allows the function to be used outside of the IIFE
@@ -58,8 +66,9 @@ return {
   add: add,
   validate: validate,
   findPokemon: findPokemon,
-  addListItem: addListItem
-};
+  addListItem: addListItem,
+  showDetails: showDetails,
+  };
 })()//end of iife
 
 
