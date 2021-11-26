@@ -1,11 +1,7 @@
 // array of objects
 
 let pokemonRepository = (function () {
-let repository = [
-  { name: 'Pikachu', height: 0.4, types: ['electric']},
-  { name: 'Moltres', height: 2, types: ['fire', 'flying']},
-  { name: 'Lugia', height: 5.2, types:['psychic', 'flying']},
-];
+let repository = [];
 
 function getAll() {
   return repository;
