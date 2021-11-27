@@ -1,10 +1,13 @@
 // array of objects
 
 let pokemonRepository = (function () {
-let repository = [];
+let pokemonList = [];
+let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
 
+
+//start adding function's
 function getAll() {
-  return repository;
+  return pokemonList;
 }
 
 // Includes Bonus part to Check if information added is an object
@@ -14,7 +17,7 @@ function add(pokemon) {
      "height" in pokemon &&
      "types" in pokemon
    ) {
-    repository.push(pokemon)
+    pokemonList.push(pokemon)
   }else{
     console.log('not a pokemon')
   }
@@ -26,7 +29,7 @@ function validate(pokemon) {
   Object.keys(pokemon)[0] === 'name' &&
   Object.keys(pokemon)[1] === 'height' &&
   Object.keys(pokemon)[2] === 'type'){
-    repository.push(pokemon);
+    pokemonList.push(pokemon);
   }else{
     return 'not a pokemon'
   }
@@ -34,7 +37,7 @@ function validate(pokemon) {
 
 // bonus - create filter function() to find pokemon by name
 function findPokemon(pokemonName){
-  return prepository.filter (pokemon => pokemon.name === pokemonName)
+  return pokemonList.filter (pokemon => pokemon.name === pokemonName)
 };
 
 //Continue task 1.6 - creating AddListItem function
