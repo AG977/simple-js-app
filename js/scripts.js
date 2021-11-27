@@ -73,6 +73,7 @@ return {
   findPokemon: findPokemon,
   addListItem: addListItem,
   showDetails: showDetails,
+  eventbutton: eventbutton,
   };
 })()//end of iife
 
