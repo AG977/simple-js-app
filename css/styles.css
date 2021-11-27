@@ -13,7 +13,10 @@ body {
   display: flex;
   flex-direction: column;
   text-align: center;
-  padding: 20px;
+}
+
+header {
+  padding-left: 40px;
 }
 
 li {
@@ -28,6 +31,7 @@ li {
   color: #daa520;
   border-color: #daa520;
   border-width: 5px;
+  width: 30%;
   padding: 20px 32px;
   text-align: center;
   text-decoration: none;
@@ -35,9 +39,18 @@ li {
   list-style-type: none;
   font-family: inherit;
   font-size: 20px;
-  margin: 4px 2px;
+  margin: 4px 4px;
   cursor: pointer;
   opacity: 0.8;
+}
+
+.button-class:hover {
+  border-color: #c0c0c0;
+}
+
+.pokemonball {
+  height: 180px;
+  width: 180px;
 }
 
 /* making it responsive on all common screen sizes. */
@@ -47,6 +60,6 @@ li {
   }
 
   h1 {
-    font-size: 22px;
+    font-size: 30px;
   }
 }
