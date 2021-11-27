@@ -55,6 +55,24 @@ function showDetails(pokemon){
   console.log(pokemon);
 };
 
+//add promise function (1.7)
+function loadList() {
+   return fetch(apiUrl).then(function (response) {
+     return response.json();
+   }).then(function (json) {
+     json.results.forEach(function (item) {
+       let pokemon = {
+         name: item.name,
+         detailsUrl: item.url
+       };
+       add(pokemon);
+       console.log(pokemon);
+     });
+   }).catch(function (e) {
+     console.error(e);
+   })
+ }
+
 //Allows the function to be used outside of the IIFE
 return {
   getAll: getAll,
@@ -63,6 +81,7 @@ return {
   findPokemon: findPokemon,
   addListItem: addListItem,
   showDetails: showDetails,
+  loadList: loadList,
   };
 })()//end of iife
 
