@@ -3,6 +3,8 @@
 let pokemonRepository = (function () {
 let pokemonList = [];
 let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
+let loadingTitle = document.querySelector(".loading-title");
+
 
 
 //start adding function's
@@ -51,6 +53,15 @@ function addListItem(pokemon){
     });
   }
 
+  //bonus 1.7
+  function showLoadingMessage(){
+  loadingTitle.classList.remove('hidden')
+}
+
+function hideLoadingMessage(){
+  loadingTitle.classList.add('hidden')
+}
+
 //add function showDetails()
 function showDetails(pokemon){
   console.log(pokemon);
@@ -58,6 +69,7 @@ function showDetails(pokemon){
 
 //add promise function:loadList(1.7)
 function loadList() {
+   showLoadingMessage();
    return fetch(apiUrl).then(function (response) {
      return response.json();
    }).then(function (json) {
@@ -68,14 +80,17 @@ function loadList() {
        };
        add(pokemon);
        console.log(pokemon);
+       hideLoadingMessage();
      });
    }).catch(function (e) {
+     hideLoadingMessage();
      console.error(e);
    })
  }
 
  // add function loadDetails
  function loadDetails(item) {
+   showLoadingMessage();
    let url = item.detailsUrl;
    return fetch(url).then(function (response) {
      return response.json();
@@ -84,7 +99,9 @@ function loadList() {
      item.imageUrl = details.sprites.front_default;
      item.height = details.height;
      item.types = details.types;
+     hideLoadingMessage();
    }).catch(function (e) {
+     hideLoadingMessage();
      console.error(e);
    });
  }
@@ -107,6 +124,8 @@ return {
   loadList: loadList,
   loadDetails: loadDetails,
   showDetails: showDetails,
+  loadDetails: loadDetails,
+  showDetails: showDetails
   };
 })()//end of iife
 

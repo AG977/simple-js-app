@@ -53,6 +53,10 @@ li {
   width: 180px;
 }
 
+.hidden {
+  display: none;
+}
+
 /* making it responsive on all common screen sizes. */
 @media all and (min-width: 500px) and (max-width: 750px) {
   .button-class {
