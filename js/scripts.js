@@ -50,7 +50,7 @@ function addListItem(pokemon){
     button.classList.add('button-class');
     listpokemon.appendChild(button);
     pokemonList.appendChild(listpokemon);
-    eventbutton(button);
+    eventbutton(button, pokemon);
 };
 
 //more advanced
