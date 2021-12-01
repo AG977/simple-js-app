@@ -6,11 +6,12 @@ let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
 
 
 //start adding function's
+// function that returns all the pokemons in the list
 function getAll() {
   return pokemonList;
 }
 
-// Includes Bonus part to Check if information added is an object
+// Function thet enables to add a new pokemon to the list
 function add(pokemon) {
   if (
     typeof pokemon === 'object' &&
@@ -22,7 +23,7 @@ function add(pokemon) {
   }
 };
 
-// bonus - added object.keys
+// function that validates if pokemon added is added in the correct way
 function validate(pokemon) {
   if(typeof(pokemon) === 'object'&&
   Object.keys(pokemon)[0] === 'name'){
@@ -32,12 +33,22 @@ function validate(pokemon) {
   }
 };
 
-// bonus - create filter function() to find pokemon by name
+function validate(pokemon) {
+  if(typeof(pokemon) === 'object'&&
+  Object.keys(pokemon)[0] === 'name'){
+    pokemonList.push(pokemon);
+    return true;
+  }else{
+    return false;
+  }
+};
+
+// function that filter's pokemon by it's name
 function findPokemon(pokemonName){
   return pokemonList.filter (pokemon => pokemon.name === pokemonName)
 };
 
-//Continue task 1.6 - creating AddListItem function
+//Function that prints a single pokemon on the list
 function addListItem(pokemon){
   let pokemonList = document.querySelector('.pokemon-list');
   let listpokemon = document.createElement('li');
@@ -50,11 +61,6 @@ function addListItem(pokemon){
       showDetails(pokemon);
     });
   }
-
-//add function showDetails()
-function showDetails(pokemon){
-  console.log(pokemon);
-};
 
 //add promise function:loadList(1.7)
 function loadList() {
@@ -96,6 +102,11 @@ function loadList() {
     });
   }
 
+  //add function showDetails()
+  function showDetails(pokemon){
+    console.log(pokemon);
+  };
+
 //Allows the function to be used outside of the IIFE
 return {
   getAll: getAll,
@@ -103,7 +114,6 @@ return {
   validate: validate,
   findPokemon: findPokemon,
   addListItem: addListItem,
-  showDetails: showDetails,
   loadList: loadList,
   loadDetails: loadDetails,
   showDetails: showDetails,
