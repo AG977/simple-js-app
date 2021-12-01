@@ -6,13 +6,13 @@ let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
 let loadingTitle = document.querySelector(".loading-title");
 
 
-
 //start adding function's
+// function that returns all the pokemons in the list
 function getAll() {
   return pokemonList;
 }
 
-// Includes Bonus part to Check if information added is an object
+// Function thet enables to add a new pokemon to the list
 function add(pokemon) {
   if (
     typeof pokemon === 'object' &&
@@ -24,7 +24,7 @@ function add(pokemon) {
   }
 };
 
-// bonus - added object.keys
+// function that validates if pokemon added is added in the correct way
 function validate(pokemon) {
   if(typeof(pokemon) === 'object'&&
   Object.keys(pokemon)[0] === 'name'){
@@ -34,12 +34,22 @@ function validate(pokemon) {
   }
 };
 
-// bonus - create filter function() to find pokemon by name
+function validate(pokemon) {
+  if(typeof(pokemon) === 'object'&&
+  Object.keys(pokemon)[0] === 'name'){
+    pokemonList.push(pokemon);
+    return true;
+  }else{
+    return false;
+  }
+};
+
+// function that filter's pokemon by it's name
 function findPokemon(pokemonName){
   return pokemonList.filter (pokemon => pokemon.name === pokemonName)
 };
 
-//Continue task 1.6 - creating AddListItem function
+//Function that prints a single pokemon on the list
 function addListItem(pokemon){
   let pokemonList = document.querySelector('.pokemon-list');
   let listpokemon = document.createElement('li');
@@ -53,21 +63,16 @@ function addListItem(pokemon){
     });
   }
 
-  //bonus 1.7
-  function showLoadingMessage(){
+  //function showLoadingMessage + hideLoadingMessage lets a message appear while loading the page
+function showLoadingMessage(){
   loadingTitle.classList.remove('hidden')
-}
+};
 
 function hideLoadingMessage(){
   loadingTitle.classList.add('hidden')
-}
-
-//add function showDetails()
-function showDetails(pokemon){
-  console.log(pokemon);
 };
 
-//add promise function:loadList(1.7)
+//function:loadList(promise) enables to load the list of pokemon from the internet site attached
 function loadList() {
    showLoadingMessage();
    return fetch(apiUrl).then(function (response) {
@@ -83,12 +88,12 @@ function loadList() {
        hideLoadingMessage();
      });
    }).catch(function (e) {
-     hideLoadingMessage();
-     console.error(e);
+      hideLoadingMessage();
+      console.error(e);
    })
- }
+ };
 
- // add function loadDetails
+ //function: loadDetails - enables to load the details of the pokemon from the attched internet site
  function loadDetails(item) {
    showLoadingMessage();
    let url = item.detailsUrl;
@@ -103,15 +108,15 @@ function loadList() {
    }).catch(function (e) {
      hideLoadingMessage();
      console.error(e);
-   });
- }
+   })
+ };
 
- // add function: showDetails
+ // function: showDetails - lets us see all the details about te pokemon in the console view
  function showDetails(item) {
     pokemonRepository.loadDetails(item).then(function () {
       console.log(item);
-    });
-  }
+    })
+  };
 
 //Allows the function to be used outside of the IIFE
 return {
@@ -120,12 +125,11 @@ return {
   validate: validate,
   findPokemon: findPokemon,
   addListItem: addListItem,
-  showDetails: showDetails,
   loadList: loadList,
   loadDetails: loadDetails,
   showDetails: showDetails,
-  loadDetails: loadDetails,
-  showDetails: showDetails
+  showLoadingMessage: showLoadingMessage,
+  hideLoadingMessage: hideLoadingMessage,
   };
 })()//end of iife
 
