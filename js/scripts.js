@@ -10,7 +10,7 @@ let loadingTitle = document.querySelector(".loading-title");
 // function that returns all the pokemons in the list
 function getAll() {
   return pokemonList;
-}
+};
 
 // Function thet enables to add a new pokemon to the list
 function add(pokemon) {
@@ -42,17 +42,18 @@ function addListItem(pokemon){
     pokemonList.appendChild(listpokemon);
     button.addEventListener('click', function (event){
       showDetails(pokemon);
-    });
-  }
+    })
+  };
 
   //function showLoadingMessage + hideLoadingMessage lets a message appear while loading the page
-function showLoadingMessage(){
-  loadingTitle.classList.remove('hidden')
-};
+ function showLoadingMessage(){
+   loadingTitle.classList.remove('hidden')
+ };
 
-function hideLoadingMessage(){
-  loadingTitle.classList.add('hidden')
-};
+ function hideLoadingMessage(){
+   loadingTitle.classList.add('hidden')
+ };
+
 
 //function:loadList(promise) enables to load the list of pokemon from the internet site attached
 function loadList() {
@@ -69,8 +70,8 @@ function loadList() {
        hideLoadingMessage();
      });
    }).catch(function (e) {
-      hideLoadingMessage();
-      console.error(e);
+     hideLoadingMessage();
+     console.error(e);
    })
  };
 
