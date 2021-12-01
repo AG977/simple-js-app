@@ -14,10 +14,7 @@ function getAll() {
 
 // Function thet enables to add a new pokemon to the list
 function add(pokemon) {
-  if (
-    typeof pokemon === 'object' &&
-     "name" in pokemon
-   ) {
+  if ( validate (pokemon)) {
     pokemonList.push(pokemon);
   }else{
     console.log('not a pokemon');
@@ -26,22 +23,7 @@ function add(pokemon) {
 
 // function that validates if pokemon added is added in the correct way
 function validate(pokemon) {
-  if(typeof(pokemon) === 'object'&&
-  Object.keys(pokemon)[0] === 'name'){
-    pokemonList.push(pokemon);
-  }else{
-    return 'not a pokemon'
-  }
-};
-
-function validate(pokemon) {
-  if(typeof(pokemon) === 'object'&&
-  Object.keys(pokemon)[0] === 'name'){
-    pokemonList.push(pokemon);
-    return true;
-  }else{
-    return false;
-  }
+  return (typeof pokemon === 'object' &&  "name" in pokemon)
 };
 
 // function that filter's pokemon by it's name
@@ -84,7 +66,6 @@ function loadList() {
          detailsUrl: item.url
        };
        add(pokemon);
-       console.log(pokemon);
        hideLoadingMessage();
      });
    }).catch(function (e) {
