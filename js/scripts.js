@@ -1,10 +1,10 @@
-// array of objects
-
+// start iife
 let pokemonRepository = (function () {
+//global
 let pokemonList = [];
 let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
 let loadingTitle = document.querySelector(".loading-title");
-
+let modalContainer = document.querySelector('#modal-container');
 
 //start adding function's
 // function that returns all the pokemons in the list
@@ -94,11 +94,63 @@ function loadList() {
  };
 
  // function: showDetails - lets us see all the details about te pokemon in the console view
- function showDetails(item) {
+ function showDetails(pokemon) {
     pokemonRepository.loadDetails(item).then(function () {
-      console.log(item);
+      showModal(pokemon);
     })
   };
+
+//function that add's the  modal
+function showModal(pokemon) {
+    modalContainer.innerHTML = '';
+    let modal = document.createElement('div');
+    modal.classList.add('modal');
+
+    let closeButtonElement = document.createElement('button');
+    closeButtonElement.classList.add('modal-close');
+    closeButtonElement.innerText = 'Close';
+    closeButtonElement.addEventListener('click', hideModal);
+
+    let titleElement = document.createElement('h1');
+    titleElement.innerText = item.name;
+
+    let contentElement = document.createElement('p');
+    contentElement.innerText = 'Height: ' + item.height;
+
+    let imageElement = document.createElement('img');
+    imageElement.src = item.imageUrl;
+
+    modal.appendChild(closeButtonElement);
+    modal.appendChild(titleElement);
+    modal.appendChild(contentElement);
+    modalContainer.appendChild(modal);
+
+    modalContainer.classList.add('is-visible');
+  }
+
+
+  function hideModal() {
+    modalContainer.classList.remove('is-visible');
+  }
+
+  window.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && modalContainer.classList.contains('is-visible')) {
+      hideModal();
+    }
+  });
+
+  modalContainer.addEventListener('click', (e) => {
+    // Since this is also triggered when clicking INSIDE the modal
+    // We only want to close if the user clicks directly on the overlay
+    let target = e.target;
+    if (target === modalContainer) {
+      hideModal();
+    }
+  });
+
+  document.querySelector('#show-modal').addEventListener('click', () => {
+    showModal('Modal title', 'This is the modal content!');
+  });
 
 //Allows the function to be used outside of the IIFE
 return {
@@ -112,6 +164,8 @@ return {
   showDetails: showDetails,
   showLoadingMessage: showLoadingMessage,
   hideLoadingMessage: hideLoadingMessage,
+  showModal: showModal,
+  hideModal: hideModal,
   };
 })()//end of iife
 
