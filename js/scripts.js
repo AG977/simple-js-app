@@ -76,16 +76,16 @@ function loadList() {
  };
 
  //function: loadDetails - enables to load the details of the pokemon from the attched internet site
- function loadDetails(item) {
+ function loadDetails(pokemon) {
    showLoadingMessage();
-   let url = item.detailsUrl;
+   let url = pokemon.detailsUrl;
    return fetch(url).then(function (response) {
      return response.json();
    }).then(function (details) {
      // Now we add the details to the item
-     item.imageUrl = details.sprites.front_default;
-     item.height = details.height;
-     item.types = details.types;
+     pokemon.imageUrl = details.sprites.front_default;
+     pokemon.height = details.height;
+     pokemon.types = details.types;
      hideLoadingMessage();
    }).catch(function (e) {
      hideLoadingMessage();
@@ -95,7 +95,7 @@ function loadList() {
 
  // function: showDetails - lets us see all the details about te pokemon in the console view
  function showDetails(pokemon) {
-    pokemonRepository.loadDetails(item).then(function () {
+    pokemonRepository.loadDetails(pokemon).then(function () {
       showModal(pokemon);
     })
   };
@@ -112,17 +112,18 @@ function showModal(pokemon) {
     closeButtonElement.addEventListener('click', hideModal);
 
     let titleElement = document.createElement('h1');
-    titleElement.innerText = item.name;
+    titleElement.innerText = pokemon.name;
 
     let contentElement = document.createElement('p');
-    contentElement.innerText = 'Height: ' + item.height;
+    contentElement.innerText = 'Height: ' + pokemon.height;
 
     let imageElement = document.createElement('img');
-    imageElement.src = item.imageUrl;
+    imageElement.src = pokemon.imageUrl;
 
     modal.appendChild(closeButtonElement);
     modal.appendChild(titleElement);
     modal.appendChild(contentElement);
+    modal.appendChild(imageElement);
     modalContainer.appendChild(modal);
 
     modalContainer.classList.add('is-visible');
@@ -146,10 +147,6 @@ function showModal(pokemon) {
     if (target === modalContainer) {
       hideModal();
     }
-  });
-
-  document.querySelector('#show-modal').addEventListener('click', () => {
-    showModal('Modal title', 'This is the modal content!');
   });
 
 //Allows the function to be used outside of the IIFE
