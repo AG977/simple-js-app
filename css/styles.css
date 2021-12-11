@@ -19,10 +19,6 @@ p {
   font-size: 40px;
 }
 
-header {
-  padding-left: 40px;
-}
-
 li {
   list-style-type: none;
   text-decoration: none;
@@ -36,8 +32,8 @@ li {
   color: #daa520;
   border-color: #daa520;
   border-width: 5px;
-  width: 70%;
   padding: 40px 0;
+  width: 40%;
   text-align: center;
   text-decoration: none;
   display: inline-block;
@@ -125,6 +121,10 @@ img {
   margin: auto;
 }
 
+ul.pokemon-list {
+  padding: 0;
+}
+
 /* making it responsive on all common screen sizes. */
 @media all and (min-width: 500px) and (max-width: 750px) {
   .button-class {
@@ -133,5 +133,11 @@ img {
 
   h1 {
     font-size: 30px;
+  }
+}
+
+@media all and (min-width: 200px) and (max-width: 450px) {
+  .button-class {
+    width: 100%;
   }
 }
