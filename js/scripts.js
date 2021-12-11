@@ -83,7 +83,7 @@ function loadList() {
      return response.json();
    }).then(function (details) {
      // Now we add the details to the item
-     pokemon.imageUrl = details.sprites.front_default;
+     pokemon.imageUrl = details.sprites.other['official-artwork'].front_default;
      pokemon.height = details.height;
      pokemon.types = details.types;
      hideLoadingMessage();
