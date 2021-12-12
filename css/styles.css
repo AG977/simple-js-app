@@ -60,6 +60,13 @@ li {
   display: none;
 }
 
+/* navigation bar style */
+.navbar-brand,
+.nav-item {
+  background-color: #000;
+  color: #daa520;
+}
+
 /* Creating a modal */
 #modal-container {
   position: fixed;
