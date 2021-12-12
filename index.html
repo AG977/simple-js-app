@@ -12,7 +12,26 @@
     <link rel="stylesheet" type="text/css" href="css/styles.css">
 </head>
 <body>
+  <!-- Navigation bar -->
+  <nav class="navbar navbar-expand-md">
+    <a class="navbar-brand">Pokedex:</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item active">
+          <a class="nav-link">List <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link">About</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
   <header>
+    <a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
     <?xml version="1.0" encoding="UTF-8" standalone="no"?>
     <svg class="pokemonball"
       xmlns:dc="http://purl.org/dc/elements/1.1/"
@@ -62,15 +81,8 @@
    <h1 class="loading-title hidden">You're page is loading...</h1>
   </div>
 
-
-
-  <!-- Button trigger modal -->
-  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-  Launch demo modal
-  </button>
-
 <!-- Modal -->
-<div id="modal-container"> 
+<div id="modal-container">
 </div>
   <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
@@ -86,7 +98,6 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
         </div>
       </div>
     </div>
