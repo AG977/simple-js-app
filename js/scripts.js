@@ -35,16 +35,17 @@ function findPokemon(pokemonName){
 function addListItem(pokemon){
   let pokemonList = document.querySelector('.pokemon-list');
   let listpokemon = document.createElement('li');
+  listpokemon.setAttribute('data-toggle', 'modal');
+  listpokemon.setAttribute('data-target', '#exampleModal');
   let button = document.createElement('button');
-    button.innerText = pokemon.name;
-    button.classList.add('button-class');
-    button.classList.add('btn');
-    listpokemon.appendChild(button);
-    pokemonList.appendChild(listpokemon);
-    button.addEventListener('click', function (event){
-      showDetails(pokemon);
-    })
-  };
+  button.innerText = pokemon.name;
+  button.classList.add('button-class','btn');
+  listpokemon.appendChild(button);
+  pokemonList.appendChild(listpokemon);
+  button.addEventListener('click', function (event){
+    showDetails(pokemon);
+  })
+};
 
   //function showLoadingMessage + hideLoadingMessage lets a message appear while loading the page
  function showLoadingMessage(){
@@ -99,6 +100,7 @@ function loadList() {
  function showDetails(pokemon) {
     pokemonRepository.loadDetails(pokemon).then(function () {
       showModal(pokemon);
+      console.log('click');
     })
   };
 
@@ -113,10 +115,10 @@ function loadList() {
     modalBody.empty();
 
     //Creating element for name in modal content
-    let nameElement = $('<h1' + pokemon.name + '</h1>');
+    let nameElement = $('<h1>' + pokemon.name + '</h1>');
 
     //Creating img in modal content
-    let imageElement = $('<img class="modal-img');
+    let imageElement = $('<img class="modal-img">');
     imageElement.attr('src', pokemon.imageUrl);
 
     //Creating element for height in modal content
@@ -134,7 +136,7 @@ function loadList() {
     modalBody.append(weightElement);
     modalBody.append(typeselement);
 
-    modalContainer.classList.add('is-visible');
+    //modalContainer.classList.add('is-visible');
   }
 
     function hideModal() {
