@@ -1,12 +1,10 @@
-// start iife
+
 let pokemonRepository = (function () {
-//global
 let pokemonList = [];
 let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
 let loadingTitle = document.querySelector(".loading-title");
 let modalContainer = document.querySelector('#modal-container');
 
-//start adding function's
 // function that returns all the pokemons in the list
 function getAll() {
   return pokemonList;
@@ -88,7 +86,7 @@ function loadList() {
      pokemon.imageUrl = details.sprites.other['official-artwork'].front_default;
      pokemon.height = details.height;
     pokemon.weight = details.weight;
-     pokemon.types = details.types;
+     pokemon.types = details.types.type.name;
      hideLoadingMessage();
    }).catch(function (e) {
      hideLoadingMessage();
@@ -104,7 +102,7 @@ function loadList() {
     })
   };
 
-  // show modal content
+  // Function that shows the detail used in the modal
   function showModal(pokemon) {
     let modalBody = $('.modal-body');
     let modalTitle = $('.modal-title');
@@ -173,10 +171,9 @@ return {
   showModal: showModal,
   hideModal: hideModal,
   };
-})()//end of iife
+})()
 
 // Foreach loop for addListItem
-
 pokemonRepository.loadList().then(function () {
   pokemonRepository.getAll().forEach(function (pokemon) {
     pokemonRepository.addListItem(pokemon);
