@@ -2,7 +2,7 @@
 let pokemonRepository = (function () {
 let pokemonList = [];
 let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
-let loadingTitle = document.querySelector(".loading-title");
+let loadingSpinner = document.querySelector(".loading-spinner");
 let modalContainer = document.querySelector('#modal-container');
 
 // function that returns all the pokemons in the list
@@ -33,6 +33,7 @@ function findPokemon(pokemonName){
 function addListItem(pokemon){
   let pokemonList = document.querySelector('.pokemon-list');
   let listpokemon = document.createElement('li');
+  listpokemon.classList.add('list-group-item');
   listpokemon.setAttribute('data-toggle', 'modal');
   listpokemon.setAttribute('data-target', '#exampleModal');
   let button = document.createElement('button');
@@ -47,11 +48,11 @@ function addListItem(pokemon){
 
   //function showLoadingMessage + hideLoadingMessage lets a message appear while loading the page
  function showLoadingMessage(){
-   loadingTitle.classList.remove('hidden')
+   loadingSpinner.classList.remove('hidden')
  };
 
  function hideLoadingMessage(){
-   loadingTitle.classList.add('hidden')
+   loadingSpinner.classList.add('hidden')
  };
 
 
@@ -85,8 +86,8 @@ function loadList() {
      // Now we add the details to the item
      pokemon.imageUrl = details.sprites.other['official-artwork'].front_default;
      pokemon.height = details.height;
-    pokemon.weight = details.weight;
-     pokemon.types = details.types.type.name;
+     pokemon.weight = details.weight;
+     pokemon.types = details.types[1].type.name; 
      hideLoadingMessage();
    }).catch(function (e) {
      hideLoadingMessage();
@@ -133,7 +134,7 @@ function loadList() {
     modalBody.append(heightElement);
     modalBody.append(weightElement);
     modalBody.append(typeselement);
-    
+
   }
 
     //modalContainer.classList.add('is-visible');
