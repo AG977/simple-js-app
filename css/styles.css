@@ -16,28 +16,11 @@ body {
   text-align: left;
 }
 
-.poke-ball {
-  height: 200px;
-  width: 200px;
+.pokemon-ball {
+  height: 180px;
+  width: 180px;
 }
 
-/* Sets the font size to 16px */
-
-/* line-height: 1.6;
-*/
-
-/* Sets the line-height to 1.6 */
-
-/* min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  text-align: center;
-}
-
-p {
-  font-size: 40px;
-}
-*/
 
 /* Sets the llayout for the buttons */
 
