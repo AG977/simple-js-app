@@ -133,10 +133,10 @@ function loadList() {
     modalBody.append(heightElement);
     modalBody.append(weightElement);
     modalBody.append(typeselement);
-
-    //modalContainer.classList.add('is-visible');
+    
   }
 
+    //modalContainer.classList.add('is-visible');
     function hideModal() {
       modalContainer.classList.remove('is-visible');
     }
@@ -146,7 +146,6 @@ function loadList() {
         hideModal();
       }
     });
-
 
 //Allows the function to be used outside of the IIFE
 return {
