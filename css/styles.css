@@ -8,8 +8,18 @@ body {
   line-height: 1.6;
 }
 
+/* About Page */
 .about-page {
   text-align: left;
+}
+
+.github {
+  height: 30px;
+  width: 30px;
+}
+
+.footer {
+  padding: 100px 0 0 0;
 }
 
 /* size for the pk image */
@@ -62,10 +72,19 @@ img {
   h1 {
     font-size: 30px;
   }
+
+  h2 {
+    font-size: 30px;
+  }
 }
 
 @media all and (min-width: 200px) and (max-width: 450px) {
   .button-class {
     width: 100%;
+  }
+
+  h2,
+  .about-li {
+    font-size: 20px;
   }
 }
