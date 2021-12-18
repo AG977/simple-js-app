@@ -87,7 +87,7 @@ function loadList() {
      pokemon.imageUrl = details.sprites.other['official-artwork'].front_default;
      pokemon.height = details.height;
      pokemon.weight = details.weight;
-     pokemon.types = details.types[1].type.name; 
+     pokemon.types = details.types[1].type.name;
      hideLoadingMessage();
    }).catch(function (e) {
      hideLoadingMessage();
@@ -97,8 +97,10 @@ function loadList() {
 
  // function: showDetails - lets us see all the details about te pokemon in the console view
  function showDetails(pokemon) {
+   showLoadingMessage();
     pokemonRepository.loadDetails(pokemon).then(function () {
       showModal(pokemon);
+      hideLoadingMessage();
       console.log('click');
     })
   };
