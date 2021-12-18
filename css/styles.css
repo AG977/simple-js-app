@@ -11,6 +11,7 @@ body {
 /* About Page */
 .about-page {
   text-align: left;
+  padding: 20px 0 0 0;
 }
 
 .github {
@@ -19,7 +20,7 @@ body {
 }
 
 .footer {
-  padding: 100px 0 0 0;
+  padding: 70px 0 0 0;
 }
 
 /* size for the pk image */
