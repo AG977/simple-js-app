@@ -101,7 +101,6 @@ function loadList() {
     pokemonRepository.loadDetails(pokemon).then(function () {
       showModal(pokemon);
       hideLoadingMessage();
-      console.log('click');
     })
   };
 
@@ -149,6 +148,7 @@ function loadList() {
         hideModal();
       }
     });
+
 
 //Allows the function to be used outside of the IIFE
 return {
