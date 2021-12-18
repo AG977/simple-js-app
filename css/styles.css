@@ -12,8 +12,6 @@ body {
 .about-page {
   text-align: left;
   padding: 20px 0 0 0;
-  max-width: var(--max-width);
-  margin: 0 auto;
 }
 
 .github {
