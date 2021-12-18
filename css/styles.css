@@ -1,6 +1,6 @@
 body {
-  background-color: #000;
-  color: #daa520;
+  background-color: #fff;
+  color: #000;
   font-family: 'Outfit', sans-serif;
   font-weight: 400;
   font-size: 30px;
@@ -8,23 +8,18 @@ body {
   line-height: 1.6;
 }
 
-.hidden {
-  display: none;
-}
-
 .about-page {
   text-align: left;
 }
 
+/* size for the pk image */
 .pokemon-ball {
   height: 180px;
   width: 180px;
 }
 
-
-/* Sets the llayout for the buttons */
-
-/* .button-class {
+/* Sets the style for the buttons(Modal) */
+.button-class {
   background-color: #000;
   color: #daa520;
   border-color: #daa520;
@@ -38,158 +33,28 @@ body {
   font-family: inherit;
   font-size: 30px;
   margin: 4px 4px;
-  cursor: pointer;
-  opacity: 0.8;
-}
-
-.navbar-toggler:hover, {
-  cursor: pointer;
 }
 
 .button-class:hover {
   border-color: #c0c0c0;
 }
 
-a:hover,
-a:focus {  */
-
-/* No underlining when hovering over a link */
-
-/*   text-decoration: none;
-}
-*/
-
-/* image of pokemon ball at the top */
-
-/* .pokemonball {
-  height: 180px;
-  width: 180px;
-}
-*/
-
-/* hides text when page is loaded */
-
-/* .hidden {
-  display: none;
-}
-
-.navigation bar style
-.navbar-brand,
-.nav-item {
-  background-color: #000;
-  color: #daa520;
-}
-
-.navbar-toggler {
-  background-color: #daa520;
-  color: #000;
-}
-*/
-
-/* Navigation styling */
-
-/* .nav-item {
-  list-style-type: none;
-  text-decoration: none;
-  margin: 0;
-  padding: 0;
-}
-
-.navbar img {
-  width: 40px;
-  height: 40px;
-}
-*/
-
-/* Creating a modal */
-
-/*
-#modal-container {
-  position: fixed;
-  padding: 20px;
-  box-sizing: border-box;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.5);
-*/
-
-/* to show it above other content */
-
-/* z-index: 999; */
-
-/* to allow scrolling if the screen is not high enough */
-
-/*   overflow: auto; */
-
-/* this is used to center the modal */
-
-/* display: grid;
-  text-align: center;
-}
-
-.modal {
-  margin: auto;
-  display: inline-block;
-  box-sizing: border-box;
-  padding: 15px;
-  width: 100%;
-  max-width: 700px;
-  text-align: left;
-  color: #daa520;
-  background-color: #000;
-  border: #daa520 5px solid;
-}
-
-.modal-close {
-  float: right;
-  -webkit-appearance: none;
-  border: 0;
-  background: none;
-  color: #777;
-  text-decoration: underline;
-}
-
-#modal-container {
-  display: none;
-}
-
-#modal-container.is-visible {
-*/
-
-/* CSS for modal container */
-
-/* display: block;
-}
-*/
-
-/* Sets size of image(pokemon) shown in modal */
-
-/* img {
+/* Sets the size for the image used in the Modal */
+img {
   width: 70%;
   height: 70%;
   display: flex;
   margin: auto;
 }
 
-ul.pokemon-list {
-  padding: 0;
+/* Hidden class for loading message */
+.hidden {
+  display: none;
 }
-*/
-
-/* About page */
-
-/* .about-page {
-  display: flex;
-  flex-direction: column;
-  text-align: left;
-}
-*/
 
 /* making it responsive on all common screen sizes. */
 
-/* @media all and (min-width: 500px) and (max-width: 750px) {
+@media all and (min-width: 500px) and (max-width: 750px) {
   .button-class {
     max-width: 200px;
   }
@@ -203,6 +68,4 @@ ul.pokemon-list {
   .button-class {
     width: 100%;
   }
-}
-*/
 }
