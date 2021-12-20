@@ -14,10 +14,8 @@ function getAll() {
 function add(pokemon) {
   if ( validate (pokemon)) {
     pokemonList.push(pokemon);
-  }else{
-    console.log('not a pokemon');
   }
-};
+  };
 
 // function that validates if pokemon added is added in the correct way
 function validate(pokemon) {
@@ -72,7 +70,6 @@ function loadList() {
      });
    }).catch(function (e) {
      hideLoadingMessage();
-     console.error(e);
    })
  };
 
@@ -84,6 +81,7 @@ function loadList() {
      return response.json();
    }).then(function (details) {
      // Now we add the details to the item
+     pokemon.name = details.name;
      pokemon.imageUrl = details.sprites.other['official-artwork'].front_default;
      pokemon.height = details.height;
      pokemon.weight = details.weight;
@@ -91,7 +89,6 @@ function loadList() {
      hideLoadingMessage();
    }).catch(function (e) {
      hideLoadingMessage();
-     console.error(e);
    })
  };
 
@@ -107,8 +104,7 @@ function loadList() {
   // Function that shows the detail used in the modal
   function showModal(pokemon) {
     let modalBody = $('.modal-body');
-    let modalTitle = $('.modal-title');
-    let modalHeader = $('.modal-header')
+    let modalTitle = $('.modal-header');
 
     //clear existing content from modal
     modalTitle.empty();
@@ -164,7 +160,7 @@ return {
   hideLoadingMessage: hideLoadingMessage,
   showModal: showModal,
   hideModal: hideModal,
-  };
+};
 })()
 
 // Foreach loop for addListItem
