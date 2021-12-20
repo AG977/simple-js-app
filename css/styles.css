@@ -65,21 +65,7 @@ img {
 
 /* making it responsive on all common screen sizes. */
 
-@media all and (min-width: 500px) and (max-width: 750px) {
-  .button-class {
-    max-width: 200px;
-  }
-
-  h1 {
-    font-size: 30px;
-  }
-
-  h2 {
-    font-size: 30px;
-  }
-}
-
-@media all and (min-width: 200px) and (max-width: 450px) {
+@media all and (max-width: 450px) {
   .button-class {
     width: 100%;
   }
@@ -88,5 +74,4 @@ img {
   .about-li {
     font-size: 20px;
   }
-}
 }
