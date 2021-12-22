@@ -22,17 +22,12 @@ Your users should be able to view a list of data and see more details for a give
 7. The JavaScript code may be manually formatted.
 8. The app must use at least one additional complex UI pattern, such as a modal, for details or
   touch interactions.
-9. The app may allow searching for items (e.g., searching for Pokémon).
-10. The app must not throw any errors when being used.
-11. The app should be deployed to a publicly accessible platform like GitHub Pages (you can
-  review how to do this in Intro to Frontend Development's Exercise 10: Code Quality, Testing, &
-  Web Hosting).
-12. The app must work in Chrome, Firefox, Safari, Edge, and Internet Explorer 11.
+9. The app must not throw any errors when being used.
+10. The app should be deployed to a publicly accessible platform like GitHub Pages
+11. The app must work in Chrome, Firefox, Safari, Edge, and Internet Explorer 11.
 
 ##  *Nice to have:*
 1. The app should show loading indicators while loading data.
-2. The app should handle errors (such as trying to load data while offline) and show user-friendly
-error messages.
 
 ##  *Technologies:*
 1. Text editor: Atom
@@ -40,6 +35,8 @@ error messages.
   -  W3C-Validation (html)
   -  Linter-tidy (html)
   -  Linter-stylelint
+  - ESLint
+  - Prettier-atom
 3. JavaScript version: es6
 4. css
 5. html
