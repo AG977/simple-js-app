@@ -95,7 +95,6 @@ function loadList() {
    return fetch(url).then(function (response) {
      return response.json();
    }).then(function (details) {
-    details.types.map(type => console.log(type.type.name));
      // Now we add the details to the item
      pokemon.name = details.name;
      pokemon.imageUrl = details.sprites.other['official-artwork'].front_default;
