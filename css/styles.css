@@ -63,6 +63,18 @@ img {
   display: none;
 }
 
+/* scroll-button style + function */
+.scroll-button {
+  position: fixed;
+  bottom: 50px;
+  right: 50px;
+  z-index: 1;
+  display: none;
+  color: #000;
+  background-color: #daa520;
+  border-color: #000;
+}
+
 /* making it responsive on all common screen sizes. */
 
 @media all and (max-width: 450px) {

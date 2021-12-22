@@ -4,7 +4,22 @@ let pokemonList = [];
 let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
 let loadingSpinner = document.querySelector(".loading-spinner");
 let modalContainer = document.querySelector('#modal-container');
+let scrollButton= document.querySelector('.scroll-button');
 
+scrollButton.addEventListener('click', function(){
+  window.scrollTo(0,0)
+});
+
+// When the user scrolls down 20px from the top of the document, show the button
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    scrollButton.style.display = "block";
+  } else {
+    scrollButton.style.display = "none";
+  }
+}
 // function that returns all the pokemons in the list
 function getAll() {
   return pokemonList;
@@ -15,7 +30,7 @@ function add(pokemon) {
   if ( validate (pokemon)) {
     pokemonList.push(pokemon);
   }
-  };
+};
 
 // function that validates if pokemon added is added in the correct way
 function validate(pokemon) {
@@ -32,9 +47,9 @@ function addListItem(pokemon){
   let pokemonList = document.querySelector('.pokemon-list');
   let listpokemon = document.createElement('li');
   listpokemon.classList.add('list-group-item');
-  listpokemon.setAttribute('data-toggle', 'modal');
-  listpokemon.setAttribute('data-target', '#exampleModal');
   let button = document.createElement('button');
+  button.setAttribute('data-toggle', 'modal');
+  button.setAttribute('data-target', '#pokemonModal');
   button.innerText = pokemon.name;
   button.classList.add('button-class','btn');
   listpokemon.appendChild(button);
@@ -80,12 +95,13 @@ function loadList() {
    return fetch(url).then(function (response) {
      return response.json();
    }).then(function (details) {
+    details.types.map(type => console.log(type.type.name));
      // Now we add the details to the item
      pokemon.name = details.name;
      pokemon.imageUrl = details.sprites.other['official-artwork'].front_default;
      pokemon.height = details.height;
      pokemon.weight = details.weight;
-     pokemon.types = details.types[1].type.name;
+     pokemon.types = details.types.map(type => type.type.name)
      hideLoadingMessage();
    }).catch(function (e) {
      hideLoadingMessage();
@@ -96,13 +112,13 @@ function loadList() {
  function showDetails(pokemon) {
    showLoadingMessage();
     pokemonRepository.loadDetails(pokemon).then(function () {
-      showModal(pokemon);
+      printDetailsInModal(pokemon);
       hideLoadingMessage();
     })
   };
 
   // Function that shows the detail used in the modal
-  function showModal(pokemon) {
+  function printDetailsInModal(pokemon) {
     let modalBody = $('.modal-body');
     let modalTitle = $('.modal-header');
 
@@ -124,7 +140,7 @@ function loadList() {
     let weightElement = $('<p>' + 'Weight: ' + pokemon.weight + '</p>');
 
     //Creating element for type in modal content
-    let typeselement = $('<p>' + 'Type(s): ' + pokemon.type + '</p>');
+    let typeselement = $('<p>' + 'Type(s): ' + pokemon.types + '</p>');
 
     modalTitle.append(nameElement);
     modalBody.append(imageElement);
@@ -132,19 +148,7 @@ function loadList() {
     modalBody.append(weightElement);
     modalBody.append(typeselement);
 
-  }
-
-    //modalContainer.classList.add('is-visible');
-    function hideModal() {
-      modalContainer.classList.remove('is-visible');
-    }
-
-    window.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && modalContainer.classList.contains('is-visible')) {
-        hideModal();
-      }
-    });
-
+  };
 
 //Allows the function to be used outside of the IIFE
 return {
@@ -158,8 +162,7 @@ return {
   showDetails: showDetails,
   showLoadingMessage: showLoadingMessage,
   hideLoadingMessage: hideLoadingMessage,
-  showModal: showModal,
-  hideModal: hideModal,
+  printDetailsInModal: printDetailsInModal,
 };
 })()
 
