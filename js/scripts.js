@@ -19,7 +19,7 @@ function scrollFunction() {
   } else {
     scrollButton.style.display = "none";
   }
-}
+};
 // function that returns all the pokemons in the list
 function getAll() {
   return pokemonList;
