@@ -35,9 +35,8 @@ Your users should be able to view a list of data and see more details for a give
   -  W3C-Validation (html)
   -  Linter-tidy (html)
   -  Linter-stylelint
-  - ESLint
   - Prettier-atom
-  -linter-ESlint
+  - linter-ESlint
 3. JavaScript version: es6
 4. css
 5. html
