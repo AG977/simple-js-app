@@ -2,7 +2,7 @@
 let pokemonRepository = (function () {
 let pokemonList = [];
 let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
-let loadingSpinner = document.querySelector(".loading-spinner");
+let loadingSpinner = document.querySelector('.loading-spinner');
 let scrollButton= document.querySelector('.scroll-button');
 
 scrollButton.addEventListener('click', function(){
@@ -14,32 +14,32 @@ window.onscroll = function() {scrollFunction()};
 
 function scrollFunction() {
   if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-    scrollButton.style.display = "block";
+    scrollButton.style.display = 'block';
   } else {
-    scrollButton.style.display = "none";
+    scrollButton.style.display = 'none';
   }
-};
+}
 // function that returns all the pokemons in the list
 function getAll() {
   return pokemonList;
-};
+}
 
 // Function thet enables to add a new pokemon to the list
 function add(pokemon) {
   if ( validate (pokemon)) {
     pokemonList.push(pokemon);
   }
-};
+}
 
 // function that validates if pokemon added is added in the correct way
 function validate(pokemon) {
-  return (typeof pokemon === 'object' &&  "name" in pokemon)
-};
+  return (typeof pokemon === 'object' &&  'name' in pokemon)
+}
 
 // function that filter's pokemon by it's name
 function findPokemon(pokemonName){
   return pokemonList.filter (pokemon => pokemon.name === pokemonName)
-};
+}
 
 //Function that prints a single pokemon on the list
 function addListItem(pokemon){
@@ -56,16 +56,16 @@ function addListItem(pokemon){
   button.addEventListener('click', function (event){
     showDetails(pokemon);
   })
-};
+}
 
   //function showLoadingMessage + hideLoadingMessage lets a message appear while loading the page
  function showLoadingMessage(){
    loadingSpinner.classList.remove('hidden')
- };
+ }
 
  function hideLoadingMessage(){
    loadingSpinner.classList.add('hidden')
- };
+ }
 
 
 //function:loadList(promise) enables to load the list of pokemon from the internet site attached
@@ -85,7 +85,7 @@ function loadList() {
    }).catch(function (e) {
      hideLoadingMessage();
    })
- };
+ }
 
  //function: loadDetails - enables to load the details of the pokemon from the attched internet site
  function loadDetails(pokemon) {
@@ -104,7 +104,7 @@ function loadList() {
    }).catch(function (e) {
      hideLoadingMessage();
    })
- };
+ }
 
  // function: showDetails - lets us see all the details about te pokemon in the console view
  function showDetails(pokemon) {
@@ -113,7 +113,7 @@ function loadList() {
       printDetailsInModal(pokemon);
       hideLoadingMessage();
     })
-  };
+  }
 
   // Function that shows the detail used in the modal
   function printDetailsInModal(pokemon) {
@@ -146,7 +146,7 @@ function loadList() {
     modalBody.append(weightElement);
     modalBody.append(typeselement);
 
-  };
+  }
 
 //Allows the function to be used outside of the IIFE
 return {
