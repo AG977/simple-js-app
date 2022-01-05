@@ -2,11 +2,7 @@ let pokemonRepository = (function () {
 let $ = document.querySelector;
 let pokemonList = [];
 let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
-<<<<<<< HEAD
-let loadingSpinner = document.querySelector(".loading-spinner");
-=======
 let loadingSpinner = document.querySelector('.loading-spinner');
->>>>>>> Task---1.11
 let scrollButton= document.querySelector('.scroll-button');
 
 scrollButton.addEventListener('click', function(){
