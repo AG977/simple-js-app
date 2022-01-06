@@ -1,14 +1,9 @@
+
 let pokemonRepository = (function () {
-let $ = document.querySelector;
 let pokemonList = [];
 let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
-<<<<<<< HEAD
-let loadingSpinner = document.querySelector(".loading-spinner");
+let loadingSpinner = document.querySelector('.loading-spinner');
 let scrollButton= document.querySelector('.scroll-button');
-=======
-let loadingSpinner = $('.loading-spinner');
-let scrollButton= $('.scroll-button');
->>>>>>> Task---1.11
 
 scrollButton.addEventListener('click', function(){
   window.scrollTo(0,0)
@@ -58,7 +53,7 @@ function addListItem(pokemon){
   button.classList.add('button-class','btn');
   listpokemon.appendChild(button);
   pokemonList.appendChild(listpokemon);
-  button.addEventListener('click', function (){
+  button.addEventListener('click', function (event){
     showDetails(pokemon);
   })
 }
@@ -87,7 +82,7 @@ function loadList() {
        add(pokemon);
        hideLoadingMessage();
      });
-   }).catch(function () {
+   }).catch(function (e) {
      hideLoadingMessage();
    })
  }
@@ -106,7 +101,7 @@ function loadList() {
      pokemon.weight = details.weight;
      pokemon.types = details.types.map(type => type.type.name)
      hideLoadingMessage();
-   }).catch(function () {
+   }).catch(function (e) {
      hideLoadingMessage();
    })
  }
